@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
-const sessions: { sessionID: string, userLoggedID: string, sessionStart: number, ip: string }[] = [];
+//const sessions: { sessionID: string, userLoggedID: string, sessionStart: number, ip: string }[] = [];
 
 export async function login(prevState:any , formData: FormData) {
     let authed = false;    
