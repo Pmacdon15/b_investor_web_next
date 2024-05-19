@@ -44,6 +44,7 @@ The commands are:
 
 2. Create a file in side of b_investor_web called .env.local with the contents of 
 ```env
+SECRET_KEY_JWT="secretPasswordHere"
 ```
 (skip to [Start Up](#Start-Up) after the above step to run dev server)
 

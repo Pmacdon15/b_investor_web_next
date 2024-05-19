@@ -99,7 +99,7 @@ export default function LoginForm() {
                     <Button type="submit" variant="contained" sx={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', height: "65px", marginTop: '20px', backgroundColor: '#2b5186', color: 'white' }}>Sign In</Button>
                 </div>
                 <div>
-                    Don't have an account? <Link href="/signup">Sign Up</Link>
+                    Don&apos;t have an account? <Link href="/signup">Sign Up</Link>
                 </div>
             </form>
         </>
