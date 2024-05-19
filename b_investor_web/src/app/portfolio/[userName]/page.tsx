@@ -1,4 +1,5 @@
 import {auth} from '../../auth'
+import Footer from '../footer'
 
 export default async function Portfolio({ params }: { params: { userName: string } }) {
     const decodedUserName = decodeURIComponent(params.userName);
@@ -7,6 +8,7 @@ export default async function Portfolio({ params }: { params: { userName: string
         <div>
             <h1>Portfolio</h1>
             <p>User Name: {decodedUserName}</p>
+            <Footer />
         </div>
     )
 }
