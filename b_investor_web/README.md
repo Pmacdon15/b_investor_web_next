@@ -70,4 +70,4 @@ npm run start
 ```
 
 # Usage
-After project is running go to http://localhost:3000 to login or sign up.
+After project is running go to http://localhost:3000 to login.
