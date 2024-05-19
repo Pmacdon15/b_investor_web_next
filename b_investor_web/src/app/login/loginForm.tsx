@@ -27,32 +27,31 @@ const initialState = {
 export default function LoginForm() {
     const { register } = useForm();
     const [userIp, setUserIp] = useState("");
-    const [state, formAction] = useFormState(login, initialState)
 
     const [showPassword, setShowPassword] = React.useState(false);
-
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchIp = async () => {
             try {
                 const response = await fetch("https://api.ipify.org/?format=json");
                 const result = await response.text();
                 const resStatus = response.status;
                 console.log(resStatus);
                 setUserIp(JSON.parse(result));
+                console.log(userIp);
             } catch (error) {
                 console.error(error);
             }
         };
+        fetchIp();
+    }, []);
 
-        fetchData();
-    }, [])
-
+    const updateUserWithIp = login.bind(null, userIp)
+    const [state, formAction] = useFormState(updateUserWithIp, initialState)
 
 
     return (
@@ -73,6 +72,10 @@ export default function LoginForm() {
                     id="outlined-adornment-password"
                     {...register("password", { required: true })}
                     type={showPassword ? 'text' : 'password'}
+                    required={true}
+                    InputLabelProps={{
+                        required: false,
+                    }}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
