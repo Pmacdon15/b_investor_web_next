@@ -17,9 +17,9 @@ I have created this fork to show my friend some of the benefits of Next js and R
 ## Current Features
 1. Login using Jwt and Server Actions allowing me to show an error message from the action when the login is rejected.
 2. Navigation bar for project.
+3. Authentication action, it allows easy authentication and redirection is a user is not Authorized through valid login. 
 ## Coming Soon
 1. Registration page.
-2. Auth action. 
 
 # Cloning
 1. Clone repository(git ssh method) run this command: 
