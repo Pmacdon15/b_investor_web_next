@@ -1,15 +1,24 @@
 'use client'
 
 import styles from './page.module.css'
-import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Checkbox from '@mui/material/Checkbox';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { useForm } from "react-hook-form";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { login } from './actions';
 import { useFormState } from 'react-dom';
+
+import * as React from 'react';
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const initialState = {
     message: '',
@@ -19,6 +28,14 @@ export default function LoginForm() {
     const { register } = useForm();
     const [userIp, setUserIp] = useState("");
     const [state, formAction] = useFormState(login, initialState)
+
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,7 +53,7 @@ export default function LoginForm() {
         fetchData();
     }, [])
 
-  
+
 
     return (
         <>
@@ -52,17 +69,26 @@ export default function LoginForm() {
                         required: false,
                     }}
                 />
-
                 <TextField
-                    id="outlined-start-adornment"
-                    label="Password"
-                    variant="outlined"
-                    required={true}
+                    id="outlined-adornment-password"
                     {...register("password", { required: true })}
-                    sx={{ marginLeft: 'auto', marginRight: 'auto', width: '85%', backgroundColor: "white", borderRadius: "5px", color: "black" }}
-                    InputLabelProps={{
-                        required: false,
+                    type={showPassword ? 'text' : 'password'}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
                     }}
+                    label="Password"
+                    sx={{ marginLeft: 'auto', marginRight: 'auto', width: '85%', backgroundColor: "white", borderRadius: "5px", color: "black" }}
                 />
                 <p>{state?.message}</p>
                 <div className={styles.buttonHolder} >
