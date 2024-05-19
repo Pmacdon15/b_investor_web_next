@@ -20,6 +20,7 @@ I have created this fork to show my friend some of the benefits of Next js and R
 1. Navigation elements for the portfolio page.
 2. Layouts for pages to navigate to.
 3. Registration page.
+4. Auth action. 
 
 # Cloning
 1. Clone repository(git ssh method) run this command: 
