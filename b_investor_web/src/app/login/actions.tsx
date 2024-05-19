@@ -4,10 +4,9 @@ import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
-//const sessions: { sessionID: string, userLoggedID: string, sessionStart: number, ip: string }[] = [];
 
-export async function login(prevState:any , formData: FormData) {
-    let authed = false;    
+export async function login(prevState:any, formData: FormData) {
+    let authed = false;  
     try {
         console.table( JSON.stringify(formData));
         const pathToUsers = path.join(process.cwd(), 'public/userData' , 'users.json');
@@ -26,7 +25,7 @@ export async function login(prevState:any , formData: FormData) {
     }
     
     applyCookie(formData.get("username") as string);
-    redirect('/dashboard');
+    redirect(`/portfolio/${formData.get("username")}`);
 }
 
 

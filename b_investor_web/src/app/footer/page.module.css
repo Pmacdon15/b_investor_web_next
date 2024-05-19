@@ -1,0 +1,36 @@
+.footer {
+  position: fixed;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.footer>* {
+  flex: 1 1 0;
+}
+
+.boxFooter {
+  border: 1px solid var(--primary-dark);
+  padding: 10px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 15px;
+  width:100%;
+  transition: duration-300; 
+}
+.boxFooter:hover {
+  /* scale: 0.9;  */
+  opacity: 0.7; /* reduce opacity on hover */
+  background-color: #ccc; /* change background color on hover (optional) */
+  color: #fff; /* change text color on hover (optional) */
+}
+.boxLabel {
+  font-size: x-small;
+  text-align: center;
+  margin-top: 10px;
+  color: var(--primary-dark);
+}
