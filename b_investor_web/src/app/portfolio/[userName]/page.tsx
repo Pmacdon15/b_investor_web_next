@@ -1,8 +1,12 @@
+import {auth} from '../../auth'
 
-export default function Portfolio() {
+export default async function Portfolio({ params }: { params: { userName: string } }) {
+    const decodedUserName = decodeURIComponent(params.userName);
+    await auth(decodedUserName);
     return (
         <div>
             <h1>Portfolio</h1>
+            <p>User Name: {decodedUserName}</p>
         </div>
     )
 }

@@ -25,7 +25,7 @@ export async function login(prevState:any, formData: FormData) {
     }
     
     applyCookie(formData.get("username") as string);
-    redirect('/portfolio');
+    redirect(`/portfolio/${formData.get("username")}`);
 }
 
 
