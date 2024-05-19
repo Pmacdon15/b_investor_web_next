@@ -1,5 +1,5 @@
 import {auth} from '../../auth'
-import Footer from '../footer'
+import Footer from '../../footer/footer'
 
 export default async function Portfolio({ params }: { params: { userName: string } }) {
     const decodedUserName = decodeURIComponent(params.userName);
