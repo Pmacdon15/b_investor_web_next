@@ -8,7 +8,7 @@ export default async function Portfolio({ params }: { params: { userName: string
         <div>
             <h1>Portfolio</h1>
             <p>User Name: {decodedUserName}</p>
-            <Footer />
+            <Footer userName={decodedUserName}/>
         </div>
     )
 }
