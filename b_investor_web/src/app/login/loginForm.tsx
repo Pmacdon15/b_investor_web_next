@@ -34,24 +34,24 @@ export default function LoginForm() {
         event.preventDefault();
     };
 
-    useEffect(() => {
-        const fetchIp = async () => {
-            try {
-                const response = await fetch("https://api.ipify.org/?format=json");
-                const result = await response.text();
-                const resStatus = response.status;
-                console.log(resStatus);
-                setUserIp(JSON.parse(result));
-                console.log(userIp);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchIp();
-    }, []);
+    // useEffect(() => {
+    //     const fetchIp = async () => {
+    //         try {
+    //             const response = await fetch("https://api.ipify.org/?format=json");
+    //             const result = await response.text();
+    //             const resStatus = response.status;
+    //             console.log(resStatus);
+    //             setUserIp(JSON.parse(result));
+    //             console.log(userIp);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
+    //     fetchIp();
+    // }, []);
 
-    const updateUserWithIp = login.bind(null, userIp)
-    const [state, formAction] = useFormState(updateUserWithIp, initialState)
+    // const updateUserWithIp = login.bind(null, userIp)
+    const [state, formAction] = useFormState(login, initialState)
 
 
     return (
