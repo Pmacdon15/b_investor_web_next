@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.22.0",
     "finnhub": "^1.2.18",
     "jsonwebtoken": "^9.0.2"
   },
